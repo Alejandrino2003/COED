@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--
+  PHP SPLIT GUIDE for programs.html (becomes programs.php)
+  1. includes/header.php: everything from <!DOCTYPE html> down to the "END includes/header.php" marker.
+     Only three things change per page: the <title>, the meta description, and aria-current="page" on the active menu link.
+     Turn the menu links into a loop over a $nav array and print aria-current when the link equals $currentPage.
+  2. programs.php: keeps only what sits between "END includes/header.php" and "START includes/footer.php".
+     At the very top of the file, inside a PHP block, set these and include the header:
+     $pageTitle = "Programs Offered | DYCI College of Education"; $pageDescription = "BEEd, BSEd majors, and CPTE programs at DYCI College of Education."; $currentPage = "programs.php"; include "includes/header.php";
+  3. includes/footer.php: everything from the "START includes/footer.php" marker to </html>.
+     At the very bottom of programs.php, inside a PHP block: include "includes/footer.php";
+     Do not paste real PHP open or close tags inside this comment, they would run once the file is .php. Delete this comment after splitting.
+  4. Change every link from .html to .php. The style.css, print.css and images/ paths stay the same.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BEEd, BSEd majors, and CPTE programs at DYCI College of Education.">
+<title>Programs Offered | DYCI College of Education</title>
+<link rel="icon" href="images/DYCI.png" type="image/png">
+<link rel="stylesheet" href="style.css" media="screen">
+<link rel="stylesheet" href="print.css" media="print">
+</head>
+<body id="top">
+
+<input type="checkbox" id="menu" class="sr-only">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="inner head-row">
+    <a class="brand" href="index.html">
+      <img class="crest" src="images/COED-logo.png" alt="College of Education logo" width="56" height="64">
+      <span>
+        <strong>College of Education</strong>
+        <small>Bachelor of Science in Education</small>
+      </span>
+    </a>
+    <div class="head-tools">
+      <label for="menu" class="menu-btn" aria-label="Open or close menu"><span></span></label>
+    </div>
+  </div>
+  <nav aria-label="Main navigation">
+    <ul class="inner">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html" aria-current="page">Programs</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="organizations.html">Orgs</a></li>
+      <li><a href="admission.html">Admission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- END includes/header.php -->
+<main id="main">
+<section class="banner"><div class="inner"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> &raquo; <span aria-current="page">Programs</span></nav><h1>Programs offered</h1><p class="lead">Decide what program is right for you.</p></div></section>
+
+<section class="block alt">
+  <div class="inner">
+    <input type="radio" name="filter" id="f-all" class="sr-only" checked>
+    <input type="radio" name="filter" id="f-elem" class="sr-only">
+    <input type="radio" name="filter" id="f-sec" class="sr-only">
+    <input type="radio" name="filter" id="f-pro" class="sr-only">
+
+    <div class="filters" role="group" aria-label="Filter programs">
+      <label for="f-all">All</label>
+      <label for="f-elem">Elementary</label>
+      <label for="f-sec">Secondary</label>
+      <label for="f-pro">Professional</label>
+    </div>
+
+    <div class="programs-grid" id="programs-grid">
+      <article class="card elementary"><span class="card-media"><img class="card-img" src="images/programs/beed.jpg" alt="" width="900" height="900" loading="lazy"></span><span class="tag">Elementary</span><h3><a href="#prog-beed">Bachelor of Elementary Education (BEEd)</a></h3><p>Prepare to teach in elementary schools.</p></article>
+      <article class="card secondary"><span class="card-media"><img class="card-img" src="images/programs/bsed-english.jpg" alt="" width="900" height="900" loading="lazy"></span><span class="tag">Secondary</span><h3><a href="#prog-bsed-english">Bachelor of Secondary Education Major in English (BSEd)</a></h3><p>Prepare to teach English in secondary schools.</p></article>
+      <article class="card secondary"><span class="card-media"><img class="card-img" src="images/programs/bsed-math.jpg" alt="" width="900" height="900" loading="lazy"></span><span class="tag">Secondary</span><h3><a href="#prog-bsed-math">Bachelor of Secondary Education Major in Mathematics (BSEd)</a></h3><p>Prepare to teach mathematics in secondary schools.</p></article>
+      <article class="card secondary"><span class="card-media"><img class="card-img" src="images/programs/bsed-science.jpg" alt="" width="900" height="900" loading="lazy"></span><span class="tag">Secondary</span><h3><a href="#prog-bsed-science">Bachelor of Secondary Education Major in Science (BSEd)</a></h3><p>Prepare to teach science in secondary schools.</p></article>
+      <article class="card secondary"><span class="card-media"><img class="card-img" src="images/programs/bsed-filipino.jpg" alt="" width="900" height="900" loading="lazy"></span><span class="tag">Secondary</span><h3><a href="#prog-bsed-filipino">Bachelor of Secondary Education Major in Filipino (BSEd)</a></h3><p>Prepare to teach Filipino in secondary schools.</p></article>
+      <article class="card professional"><span class="card-media"><img class="card-img" src="images/programs/cpte.jpg" alt="" width="900" height="900" loading="lazy"></span><span class="tag">Professional</span><h3><a href="#prog-cpte">Continuing Professional Teacher Education (CPTE)</a></h3><p>Enhance your teaching skills and knowledge.</p></article>
+    </div>
+    <hr>
+    <p>Not sure which program fits you? <a href="contact.html#inquiry">Send us an inquiry</a> or read the <a href="admission.html#requirements">admission requirements</a>.</p>
+  </div>
+</section>
+
+<div class="modal" id="prog-beed" role="dialog" aria-modal="true" aria-labelledby="prog-beed-title">
+  <a class="modal-backdrop" href="#programs-grid" aria-label="Close details"></a>
+  <article class="modal-card">
+    <a class="modal-close" href="#programs-grid" aria-label="Close details">&times;</a>
+    <div class="modal-img pimg-beed" role="img" aria-label="Bachelor of Elementary Education (BEEd)"></div>
+    <div class="modal-body">
+      <span class="tag">Elementary</span>
+      <h2 id="prog-beed-title">Bachelor of Elementary Education (BEEd)</h2>
+      <p>The BEEd program prepares you to teach in elementary schools. You learn how to plan lessons, manage a classroom, and assess learning, then practice these skills in real schools during your teaching internship.</p>
+      <dl class="modal-facts">
+        <div><dt>Level</dt><dd>Elementary</dd></div>
+        <div><dt>Focus</dt><dd>Elementary school teaching</dd></div>
+        <div><dt>Practice</dt><dd>Teaching internship in real schools</dd></div>
+      </dl>
+      <p class="btn-row"><a class="button solid" href="admission.html#requirements">Admission requirements</a><a class="button ghost" href="contact.html#inquiry">Ask about this program</a></p>
+    </div>
+  </article>
+</div>
+<div class="modal" id="prog-bsed-english" role="dialog" aria-modal="true" aria-labelledby="prog-bsed-english-title">
+  <a class="modal-backdrop" href="#programs-grid" aria-label="Close details"></a>
+  <article class="modal-card">
+    <a class="modal-close" href="#programs-grid" aria-label="Close details">&times;</a>
+    <div class="modal-img pimg-bsed-english" role="img" aria-label="Bachelor of Secondary Education Major in English (BSEd)"></div>
+    <div class="modal-body">
+      <span class="tag">Secondary</span>
+      <h2 id="prog-bsed-english-title">Bachelor of Secondary Education Major in English (BSEd)</h2>
+      <p>This BSEd major prepares you to teach English in secondary schools. You build strong subject knowledge and the classroom skills to plan lessons, manage learners, and assess learning, with a teaching internship in real schools.</p>
+      <dl class="modal-facts">
+        <div><dt>Level</dt><dd>Secondary</dd></div>
+        <div><dt>Focus</dt><dd>English, junior and senior high school</dd></div>
+        <div><dt>Practice</dt><dd>Teaching internship in real schools</dd></div>
+      </dl>
+      <p class="btn-row"><a class="button solid" href="admission.html#requirements">Admission requirements</a><a class="button ghost" href="contact.html#inquiry">Ask about this program</a></p>
+    </div>
+  </article>
+</div>
+<div class="modal" id="prog-bsed-math" role="dialog" aria-modal="true" aria-labelledby="prog-bsed-math-title">
+  <a class="modal-backdrop" href="#programs-grid" aria-label="Close details"></a>
+  <article class="modal-card">
+    <a class="modal-close" href="#programs-grid" aria-label="Close details">&times;</a>
+    <div class="modal-img pimg-bsed-math" role="img" aria-label="Bachelor of Secondary Education Major in Mathematics (BSEd)"></div>
+    <div class="modal-body">
+      <span class="tag">Secondary</span>
+      <h2 id="prog-bsed-math-title">Bachelor of Secondary Education Major in Mathematics (BSEd)</h2>
+      <p>This BSEd major prepares you to teach mathematics in secondary schools. You build strong subject knowledge and the classroom skills to plan lessons, manage learners, and assess learning, with a teaching internship in real schools.</p>
+      <dl class="modal-facts">
+        <div><dt>Level</dt><dd>Secondary</dd></div>
+        <div><dt>Focus</dt><dd>Mathematics, junior and senior high school</dd></div>
+        <div><dt>Practice</dt><dd>Teaching internship in real schools</dd></div>
+      </dl>
+      <p class="btn-row"><a class="button solid" href="admission.html#requirements">Admission requirements</a><a class="button ghost" href="contact.html#inquiry">Ask about this program</a></p>
+    </div>
+  </article>
+</div>
+<div class="modal" id="prog-bsed-science" role="dialog" aria-modal="true" aria-labelledby="prog-bsed-science-title">
+  <a class="modal-backdrop" href="#programs-grid" aria-label="Close details"></a>
+  <article class="modal-card">
+    <a class="modal-close" href="#programs-grid" aria-label="Close details">&times;</a>
+    <div class="modal-img pimg-bsed-science" role="img" aria-label="Bachelor of Secondary Education Major in Science (BSEd)"></div>
+    <div class="modal-body">
+      <span class="tag">Secondary</span>
+      <h2 id="prog-bsed-science-title">Bachelor of Secondary Education Major in Science (BSEd)</h2>
+      <p>This BSEd major prepares you to teach science in secondary schools. You build strong subject knowledge and the classroom skills to plan lessons, manage learners, and assess learning, with a teaching internship in real schools.</p>
+      <dl class="modal-facts">
+        <div><dt>Level</dt><dd>Secondary</dd></div>
+        <div><dt>Focus</dt><dd>Science, junior and senior high school</dd></div>
+        <div><dt>Practice</dt><dd>Teaching internship in real schools</dd></div>
+      </dl>
+      <p class="btn-row"><a class="button solid" href="admission.html#requirements">Admission requirements</a><a class="button ghost" href="contact.html#inquiry">Ask about this program</a></p>
+    </div>
+  </article>
+</div>
+<div class="modal" id="prog-bsed-filipino" role="dialog" aria-modal="true" aria-labelledby="prog-bsed-filipino-title">
+  <a class="modal-backdrop" href="#programs-grid" aria-label="Close details"></a>
+  <article class="modal-card">
+    <a class="modal-close" href="#programs-grid" aria-label="Close details">&times;</a>
+    <div class="modal-img pimg-bsed-filipino" role="img" aria-label="Bachelor of Secondary Education Major in Filipino (BSEd)"></div>
+    <div class="modal-body">
+      <span class="tag">Secondary</span>
+      <h2 id="prog-bsed-filipino-title">Bachelor of Secondary Education Major in Filipino (BSEd)</h2>
+      <p>This BSEd major prepares you to teach Filipino in secondary schools. You build strong subject knowledge and the classroom skills to plan lessons, manage learners, and assess learning, with a teaching internship in real schools.</p>
+      <dl class="modal-facts">
+        <div><dt>Level</dt><dd>Secondary</dd></div>
+        <div><dt>Focus</dt><dd>Filipino, junior and senior high school</dd></div>
+        <div><dt>Practice</dt><dd>Teaching internship in real schools</dd></div>
+      </dl>
+      <p class="btn-row"><a class="button solid" href="admission.html#requirements">Admission requirements</a><a class="button ghost" href="contact.html#inquiry">Ask about this program</a></p>
+    </div>
+  </article>
+</div>
+<div class="modal" id="prog-cpte" role="dialog" aria-modal="true" aria-labelledby="prog-cpte-title">
+  <a class="modal-backdrop" href="#programs-grid" aria-label="Close details"></a>
+  <article class="modal-card">
+    <a class="modal-close" href="#programs-grid" aria-label="Close details">&times;</a>
+    <div class="modal-img pimg-cpte" role="img" aria-label="Continuing Professional Teacher Education (CPTE)"></div>
+    <div class="modal-body">
+      <span class="tag">Professional</span>
+      <h2 id="prog-cpte-title">Continuing Professional Teacher Education (CPTE)</h2>
+      <p>The CPTE program is for those who want to enhance their teaching skills and knowledge. Contact the department to learn who can enroll and how the program is scheduled.</p>
+      <dl class="modal-facts">
+        <div><dt>Level</dt><dd>Professional</dd></div>
+        <div><dt>Focus</dt><dd>Professional teacher education</dd></div>
+        <div><dt>Practice</dt><dd>Ask the department</dd></div>
+      </dl>
+      <p class="btn-row"><a class="button solid" href="admission.html#requirements">Admission requirements</a><a class="button ghost" href="contact.html#inquiry">Ask about this program</a></p>
+    </div>
+  </article>
+</div>
+</main>
+<!-- START includes/footer.php -->
+
+<section class="accred" aria-label="Accreditations and certifications">
+  <div class="accred-img" role="img" aria-label="Accreditations and certifications: TÜV Rheinland ISO 9001:2015, PACUCOA, PEAC, CHED and DepEd"></div>
+</section>
+
+<footer class="site-foot">
+  <div class="inner foot-grid">
+    <div class="foot-brand"><img class="foot-logo" src="images/DYCI.png" alt="Dr. Yanga’s Colleges, Inc. seal and wordmark" width="96" height="96"><strong>College of Education</strong><p>Bachelor of Science in Education at DYCI.</p></div>
+    <div><h3>Explore</h3><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="organizations.html">Orgs</a></li>
+      <li><a href="admission.html">Admission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div><h3>Learn more about us</h3><ul>
+      <li><a href="https://www.facebook.com/coed.dyci" target="_blank" rel="noopener noreferrer">Visit our page</a></li>
+      <li><a href="https://dyci.edu.ph/learn-with-us/colleges/coed" target="_blank" rel="noopener noreferrer">News and announcements</a></li>
+    </ul></div>
+    <div><h3>Contact us</h3><ul>
+      <li><a href="tel:+639544441821">0954 444 1821</a></li>
+      <li>Marciano Campus, Wakas, Bocaue, Bulacan</li>
+    </ul></div>
+  </div>
+  <p class="copy">All rights reserved &copy; 2026 DYCI College of Education</p>
+</footer>
+<script>
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && location.hash.indexOf("#prog-") === 0) { location.hash = "#programs-grid"; }
+});
+</script>
+</body>
+</html>

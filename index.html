@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+  PHP SPLIT GUIDE for index.html (becomes index.php)
+  1. includes/header.php: everything from <!DOCTYPE html> down to the "END includes/header.php" marker.
+     Only three things change per page: the <title>, the meta description, and aria-current="page" on the active menu link.
+     Turn the menu links into a loop over a $nav array and print aria-current when the link equals $currentPage.
+  2. index.php: keeps only what sits between "END includes/header.php" and "START includes/footer.php".
+     At the very top of the file, inside a PHP block, set these and include the header:
+     $pageTitle = "College of Education | Bachelor of Science in Education"; $pageDescription = "DYCI College of Education: Bachelor of Science in Education programs, admission requirements, and contact details."; $currentPage = "index.php"; include "includes/header.php";
+  3. includes/footer.php: everything from the "START includes/footer.php" marker to </html>.
+     At the very bottom of index.php, inside a PHP block: include "includes/footer.php";
+     Do not paste real PHP open or close tags inside this comment, they would run once the file is .php. Delete this comment after splitting.
+  4. Change every link from .html to .php. The style.css, print.css and images/ paths stay the same.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DYCI College of Education: Bachelor of Science in Education programs, admission requirements, and contact details.">
+<title>College of Education | Bachelor of Science in Education</title>
+<link rel="icon" href="images/DYCI.png" type="image/png">
+<link rel="stylesheet" href="style.css" media="screen">
+<link rel="stylesheet" href="print.css" media="print">
+</head>
+<body id="top">
+
+<input type="checkbox" id="menu" class="sr-only">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="inner head-row">
+    <a class="brand" href="index.html">
+      <img class="crest" src="images/COED-logo.png" alt="College of Education logo" width="56" height="64">
+      <span>
+        <strong>College of Education</strong>
+        <small>Bachelor of Science in Education</small>
+      </span>
+    </a>
+    <div class="head-tools">
+      <label for="menu" class="menu-btn" aria-label="Open or close menu"><span></span></label>
+    </div>
+  </div>
+  <nav aria-label="Main navigation">
+    <ul class="inner">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="organizations.html">Orgs</a></li>
+      <li><a href="admission.html">Admission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- END includes/header.php -->
+<main id="main">
+<section class="hero">
+  <div class="inner board">
+    <div class="board-text">
+      <h1>Become the teacher your students remember.</h1>
+      <p>The BSEd program prepares future basic and secondary teachers with strong subject knowledge, classroom skills, and a heart for service.</p>
+      <p class="btn-row">
+        <a class="button" href="admission.html">Enroll now</a>
+        <a class="button ghost" href="programs.html">See programs</a>
+      </p>
+    </div>
+    <img class="art" src="images/bookcap.png" alt="Open book with a graduation cap" width="240" height="200">
+  </div>
+</section>
+
+<section class="facts-wrap" aria-label="Quick facts">
+  <ul class="facts inner">
+    <li><strong>4</strong><span>years of study</span></li>
+    <li><strong>6</strong><span>programs to choose from</span></li>
+    <li><strong>4</strong><span>simple steps to enroll</span></li>
+    <li><strong>8&ndash;5</strong><span>office hours, Monday to Friday</span></li>
+  </ul>
+</section>
+
+<section class="block">
+  <div class="inner">
+    <h2>Learn to teach by teaching</h2>
+    <p class="intro">Our students learn how to plan lessons, manage a classroom, and assess learning, then practice these skills in real schools during their teaching internship.</p>
+    <div class="skills">
+      <article><h3>Plan</h3><p>Design lessons that fit your subject and your learners.</p></article>
+      <article><h3>Manage</h3><p>Build a classroom where every student can take part.</p></article>
+      <article><h3>Assess</h3><p>Measure learning fairly and use results to improve.</p></article>
+      <article><h3>Practice</h3><p>Teach in real schools during your internship.</p></article>
+    </div>
+    <p><a href="about.html">Read more about the department</a></p>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="inner">
+    <h2>Find your program</h2>
+    <p class="intro">Decide what program is right for you.</p>
+    <div class="programs-grid">
+      <article class="card elementary"><span class="tag">Elementary</span><h3>Bachelor of Elementary Education (BEEd)</h3><p>Prepare to teach in elementary schools.</p></article>
+      <article class="card secondary"><span class="tag">Secondary</span><h3>Bachelor of Secondary Education (BSEd)</h3><p>Majors in English, Mathematics, Science, and Filipino.</p></article>
+      <article class="card professional"><span class="tag">Professional</span><h3>Continuing Professional Teacher Education (CPTE)</h3><p>Enhance your teaching skills and knowledge.</p></article>
+    </div>
+    <p><a href="programs.html">See all offered programs</a></p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="inner">
+    <h2>Enroll in four steps</h2>
+    <p class="intro"><strong>New students and transferees</strong> start with an admission or entrance exam.</p>
+    <ol class="steps">
+      <li>Admission or entrance exam</li>
+      <li>Submission and evaluation of requirements</li>
+      <li>Course enlistment and tagging of discount</li>
+      <li>Assessment and payment of fees</li>
+    </ol>
+    <p><a class="button solid" href="admission.html#requirements">See the requirements checklist</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="inner">
+    <h2>Every student deserves a great future. Be a part of it.</h2>
+    <p class="btn-row"><a class="button" href="admission.html">Check the requirements</a><a class="button ghost" href="contact.html">Talk to our frontline</a></p>
+  </div>
+</section>
+</main>
+<!-- START includes/footer.php -->
+
+<section class="accred" aria-label="Accreditations and certifications">
+  <div class="accred-img" role="img" aria-label="Accreditations and certifications: TÜV Rheinland ISO 9001:2015, PACUCOA, PEAC, CHED and DepEd"></div>
+</section>
+
+<footer class="site-foot">
+  <div class="inner foot-grid">
+    <div class="foot-brand"><img class="foot-logo" src="images/DYCI.png" alt="Dr. Yanga’s Colleges, Inc. seal and wordmark" width="96" height="96"><strong>College of Education</strong><p>Bachelor of Science in Education at DYCI.</p></div>
+    <div><h3>Explore</h3><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="organizations.html">Orgs</a></li>
+      <li><a href="admission.html">Admission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div><h3>Learn more about us</h3><ul>
+      <li><a href="https://www.facebook.com/coed.dyci" target="_blank" rel="noopener noreferrer">Visit our page</a></li>
+      <li><a href="https://dyci.edu.ph/learn-with-us/colleges/coed" target="_blank" rel="noopener noreferrer">News and announcements</a></li>
+    </ul></div>
+    <div><h3>Contact us</h3><ul>
+      <li><a href="tel:+639544441821">0954 444 1821</a></li>
+      <li>Marciano Campus, Wakas, Bocaue, Bulacan</li>
+    </ul></div>
+  </div>
+  <p class="copy">All rights reserved &copy; 2026 DYCI College of Education</p>
+</footer>
+</body>
+</html>

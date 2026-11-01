@@ -1,0 +1,17 @@
+body { font: 12pt/1.5 Georgia, "Times New Roman", serif; color: #000000; background: #ffffff; }
+.site, .skip, .to-top, .hero, .facts-wrap, .cta, .crumbs, .apply, .filters, .form, .btn-row, .jump { display: none; }
+.banner { padding: 0; color: #000000; background: none; border: 0; }
+h1, h2, h3, .banner h1 { color: #000000; text-shadow: none; }
+.content, .side { float: none; width: 100%; box-shadow: none; }
+.panel { display: block; }
+.card, .steps li, .news li { box-shadow: none; clip-path: none; break-inside: avoid; }
+a, .site-foot a { color: #000000; }
+.content a[href^="http"]::after, .contacts a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 10pt; }
+.site-foot { color: #000000; background: none; border-top: 1px solid #000000; }
+body::before, body::after, .banner::after { display: none; }
+.lightboxes, .lightbox, .badge { display: none; } .people { display: block; } .person { display: inline-block; width: 30%; break-inside: avoid; box-shadow: none; }
+
+.page-bg, .projects, .lightboxes { display: none; }
+.dean img { max-width: 40%; }
+
+.modal, .card-more { display: none; }

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+  PHP SPLIT GUIDE for contact.html (becomes contact.php)
+  1. includes/header.php: everything from <!DOCTYPE html> down to the "END includes/header.php" marker.
+     Only three things change per page: the <title>, the meta description, and aria-current="page" on the active menu link.
+     Turn the menu links into a loop over a $nav array and print aria-current when the link equals $currentPage.
+  2. contact.php: keeps only what sits between "END includes/header.php" and "START includes/footer.php".
+     At the very top of the file, inside a PHP block, set these and include the header:
+     $pageTitle = "Contact Us | DYCI College of Education"; $pageDescription = "Contact the DYCI College of Education or send an inquiry."; $currentPage = "contact.php"; include "includes/header.php";
+  3. includes/footer.php: everything from the "START includes/footer.php" marker to </html>.
+     At the very bottom of contact.php, inside a PHP block: include "includes/footer.php";
+     Do not paste real PHP open or close tags inside this comment, they would run once the file is .php. Delete this comment after splitting.
+  4. Change every link from .html to .php. The style.css, print.css and images/ paths stay the same.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact the DYCI College of Education or send an inquiry.">
+<title>Contact Us | DYCI College of Education</title>
+<link rel="icon" href="images/DYCI.png" type="image/png">
+<link rel="stylesheet" href="style.css" media="screen">
+<link rel="stylesheet" href="print.css" media="print">
+</head>
+<body id="top">
+
+<input type="checkbox" id="menu" class="sr-only">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="inner head-row">
+    <a class="brand" href="index.html">
+      <img class="crest" src="images/COED-logo.png" alt="College of Education logo" width="56" height="64">
+      <span>
+        <strong>College of Education</strong>
+        <small>Bachelor of Science in Education</small>
+      </span>
+    </a>
+    <div class="head-tools">
+      <label for="menu" class="menu-btn" aria-label="Open or close menu"><span></span></label>
+    </div>
+  </div>
+  <nav aria-label="Main navigation">
+    <ul class="inner">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="organizations.html">Orgs</a></li>
+      <li><a href="admission.html">Admission</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- END includes/header.php -->
+<main id="main">
+<section class="banner"><div class="inner"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> &raquo; <span aria-current="page">Contact</span></nav><h1>Contact us</h1><p class="lead">Send an inquiry or visit the frontline.</p></div></section>
+
+<section class="block">
+  <div class="inner two-col">
+    <div class="content">
+      <h2 id="inquiry">Send us an inquiry</h2>
+      <p class="hint">Name, email, and message are required.</p>
+      <form class="form" action="inquiry.php" method="post">
+        <fieldset>
+          <legend>Your details</legend>
+          <p><label for="name">Full name</label><input type="text" id="name" name="name" autocomplete="name" required></p>
+          <p><label for="email">Email address</label><input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required></p>
+          <p><label for="phone">Mobile number</label><input type="tel" id="phone" name="phone" autocomplete="tel" pattern="[0-9+\- ]{7,15}" title="Use digits, spaces, + or -" placeholder="0912 345 6789"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>I am a</legend>
+          <label class="choice"><input type="radio" name="applicant" value="freshman" required> Incoming freshman</label>
+          <label class="choice"><input type="radio" name="applicant" value="transferee"> Transferee</label>
+          <label class="choice"><input type="radio" name="applicant" value="parent"> Parent or guardian</label>
+          <label class="choice"><input type="radio" name="applicant" value="other"> Other</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your inquiry</legend>
+          <p>
+            <label for="program">Program of interest</label>
+            <select id="program" name="program">
+              <option value="">Choose a program</option>
+              <optgroup label="Elementary">
+                <option value="beed">Bachelor of Elementary Education (BEEd)</option>
+              </optgroup>
+              <optgroup label="Secondary">
+                <option value="bsed-english">BSEd Major in English</option>
+                <option value="bsed-math">BSEd Major in Mathematics</option>
+                <option value="bsed-science">BSEd Major in Science</option>
+                <option value="bsed-filipino">BSEd Major in Filipino</option>
+              </optgroup>
+              <optgroup label="Professional">
+                <option value="cpte">Continuing Professional Teacher Education (CPTE)</option>
+              </optgroup>
+            </select>
+          </p>
+          <p><label for="message">Message</label><textarea id="message" name="message" rows="5" cols="40" required></textarea></p>
+          <label class="choice"><input type="checkbox" name="updates" value="yes"> Send me admission updates</label>
+        </fieldset>
+
+        <p class="btn-row"><input class="button" type="submit" value="Send inquiry"><input class="button outline" type="reset" value="Clear form"></p>
+      </form>
+    </div>
+    <aside class="side">
+      <h2>Contact details</h2>
+      <p class="hours"><strong>Office hours:</strong> 8:00 AM to 5:00 PM, Monday to Friday</p>
+      <dl class="contacts">
+        <div><dt>Website</dt><dd><a href="https://dyci.edu.ph" target="_blank" rel="noopener">dyci.edu.ph</a></dd></div>
+        <div><dt>Contact number</dt><dd><a href="tel:+639544441821">0954 444 1821</a></dd></div>
+        <div><dt>Elida Campus Frontline (Frontline/Admission)</dt><dd><a href="tel:+639946087746">0994 608 7746</a></dd></div>
+        <div><dt>Marciano Campus Frontline (Frontline/Admission)</dt><dd><a href="tel:+639682626292">0968-262-6292</a></dd></div>
+        <div><dt>Visit us</dt><dd><address>Elida Campus office, Binang 1st, Bocaue, Bulacan</address></dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+</main>
+<!-- START includes/footer.php -->
+
+<section class="accred" aria-label="Accreditations and certifications">
+  <div class="accred-img" role="img" aria-label="Accreditations and certifications: TÜV Rheinland ISO 9001:2015, PACUCOA, PEAC, CHED and DepEd"></div>
+</section>
+
+<footer class="site-foot">
+  <div class="inner foot-grid">
+    <div class="foot-brand"><img class="foot-logo" src="images/DYCI.png" alt="Dr. Yanga’s Colleges, Inc. seal and wordmark" width="96" height="96"><strong>College of Education</strong><p>Bachelor of Science in Education at DYCI.</p></div>
+    <div><h3>Explore</h3><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="organizations.html">Orgs</a></li>
+      <li><a href="admission.html">Admission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div><h3>Learn more about us</h3><ul>
+      <li><a href="https://www.facebook.com/coed.dyci" target="_blank" rel="noopener noreferrer">Visit our page</a></li>
+      <li><a href="https://dyci.edu.ph/learn-with-us/colleges/coed" target="_blank" rel="noopener noreferrer">News and announcements</a></li>
+    </ul></div>
+    <div><h3>Contact us</h3><ul>
+      <li><a href="tel:+639544441821">0954 444 1821</a></li>
+      <li>Marciano Campus, Wakas, Bocaue, Bulacan</li>
+    </ul></div>
+  </div>
+  <p class="copy">All rights reserved &copy; 2026 DYCI College of Education</p>
+</footer>
+</body>
+</html>
